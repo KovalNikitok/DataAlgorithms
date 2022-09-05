@@ -1,4 +1,4 @@
-﻿using DataAlgorithm;
+﻿using Algorithms.DataAlgorithm;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
