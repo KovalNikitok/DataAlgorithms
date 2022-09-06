@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Algorithms.DataAlgorithm
 {
-    class InsertionSort<T> : Algorithm<T> where T : IComparable<T>
+    public class InsertionSort<T> : Algorithm<T> where T : IComparable<T>
     {
         public override void Sort(IList<T> collection)
         {

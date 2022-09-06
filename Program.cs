@@ -35,6 +35,7 @@ namespace Algorithms
                                                  reversedCollection,
                                                  sortedCollection,
                                                  randomUnsortedCollection);
+
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
