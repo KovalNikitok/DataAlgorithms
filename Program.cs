@@ -30,11 +30,24 @@ namespace Algorithms
             algorithms[0] = new BubbleSort<int>();
             algorithms[1] = new ShakeSort<int>();
             algorithms[2] = new InsertionSort<int>();
+            algorithms[3] = new ShellSort<int>();
 
-            SortAllCollectionWithResults_Console(algorithms,
-                                                 reversedCollection,
-                                                 sortedCollection,
-                                                 randomUnsortedCollection);
+            /*  SortAllCollectionWithResults_Console(algorithms,
+                                                   reversedCollection,
+                                                   sortedCollection,
+                                                   randomUnsortedCollection);
+  */
+            List<int> ls = new List<int>(new int[] { 3, 4, 1, 2, 7, 6, 8, 5 });
+            foreach (var item in ls)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
+            algorithms[3].Sort(ls);
+            foreach (var item in ls)
+            {
+                Console.WriteLine(item);
+            }
 
         }
 
