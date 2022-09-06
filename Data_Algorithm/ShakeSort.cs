@@ -5,8 +5,6 @@ namespace Algorithms.DataAlgorithm
 {
     public class ShakeSort<T> : Algorithm<T> where T : IComparable<T>
     {
-        public override int CompareTo(T other) => CompareTo(other);
-
         public override void Sort(IList<T> collection)
         {
             SwapTimes = 0;

@@ -14,6 +14,6 @@ namespace Algorithms.DataAlgorithm
             SwapTimes++;
         }
         public abstract void Sort(IList<T> collection);
-        public abstract int CompareTo(T other);
+        public virtual int CompareTo(T other) => CompareTo(other);
     }
 }

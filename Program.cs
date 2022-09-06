@@ -29,6 +29,8 @@ namespace Algorithms
             Algorithm<int>[] algorithms = new Algorithm<int>[5];
             algorithms[0] = new BubbleSort<int>();
             algorithms[1] = new ShakeSort<int>();
+            algorithms[2] = new InsertionSort<int>();
+
             SortAllCollectionWithResults_Console(algorithms,
                                                  reversedCollection,
                                                  sortedCollection,
@@ -48,20 +50,17 @@ namespace Algorithms
 
                 reversedCollection.CopyTo(newList);
                 algorithmDiagnostic = new AlgorithmDiagnostic<int>(item, newList);
-                Console.WriteLine();
                 Console.WriteLine($"Sort reversed collection:\n{algorithmDiagnostic}");
 
                 sortedCollection.CopyTo(newList);
                 algorithmDiagnostic.ChangeCollection(newList);
-                Console.WriteLine();
                 Console.WriteLine($"Sort sorted collection:\n{algorithmDiagnostic}");
 
                 randomUnsortedCollection.CopyTo(newList);
                 algorithmDiagnostic.ChangeCollection(newList);
-                Console.WriteLine();
                 Console.WriteLine($"Sort random unsorted collection:\n{algorithmDiagnostic}");
                 
-                Console.WriteLine();
+                Console.WriteLine("\n");
             }
         }
 

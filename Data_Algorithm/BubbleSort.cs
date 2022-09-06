@@ -4,8 +4,6 @@ namespace Algorithms.DataAlgorithm
 {
     public class BubbleSort<T> : Algorithm<T> where T : IComparable<T>
     {
-        public override int CompareTo(T other) => this.CompareTo(other);
-
         public override void Sort(IList<T> collection)
         {
             SwapTimes = 0;
