@@ -8,6 +8,7 @@ namespace Algorithms.DataAlgorithm
 
         public override void Sort(IList<T> collection)
         {
+            SwapTimes = 0;
             if (collection == null || collection.Count <= 1)
                 return;
             for (int i = 0; i < collection.Count - 1; i++)
@@ -18,6 +19,8 @@ namespace Algorithms.DataAlgorithm
                         continue;
                     Swap(collection, j, j + 1);
                 }
+                if (SwapTimes == 0)
+                    break;
             }
         }
 

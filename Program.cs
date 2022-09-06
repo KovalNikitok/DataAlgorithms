@@ -29,7 +29,6 @@ namespace Algorithms
             Algorithm<int>[] algorithms = new Algorithm<int>[5];
             algorithms[0] = new BubbleSort<int>();
             algorithms[1] = new ShakeSort<int>();
-
             SortAllCollectionWithResults_Console(algorithms,
                                                  reversedCollection,
                                                  sortedCollection,
@@ -38,32 +37,29 @@ namespace Algorithms
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
         {
+            AlgorithmDiagnostic<int> algorithmDiagnostic;
             foreach (var item in algorithms)
             {
                 if (item == null)
                     continue;
 
                 var newList = new int[reversedCollection.Count];
-                Stopwatch timer = new Stopwatch();
                 Console.WriteLine($"{item.GetType().Name[0..^2]} algorithm results:");
 
                 reversedCollection.CopyTo(newList);
-                timer.Start();
-                item.Sort(newList);
-                timer.Stop();
-                Console.WriteLine($"Sort reversed collection for: {timer.Elapsed.TotalMilliseconds} ms");
+                algorithmDiagnostic = new AlgorithmDiagnostic<int>(item, newList);
+                Console.WriteLine();
+                Console.WriteLine($"Sort reversed collection:\n{algorithmDiagnostic}");
 
                 sortedCollection.CopyTo(newList);
-                timer.Restart();
-                item.Sort(newList);
-                timer.Stop();
-                Console.WriteLine($"Sort sorted collection for: {timer.Elapsed.TotalMilliseconds} ms");
+                algorithmDiagnostic.ChangeCollection(newList);
+                Console.WriteLine();
+                Console.WriteLine($"Sort sorted collection:\n{algorithmDiagnostic}");
 
                 randomUnsortedCollection.CopyTo(newList);
-                timer.Restart();
-                item.Sort(newList);
-                timer.Stop();
-                Console.WriteLine($"Sort random unsorted collection for: {timer.Elapsed.TotalMilliseconds} ms");
+                algorithmDiagnostic.ChangeCollection(newList);
+                Console.WriteLine();
+                Console.WriteLine($"Sort random unsorted collection:\n{algorithmDiagnostic}");
                 
                 Console.WriteLine();
             }

@@ -9,6 +9,7 @@ namespace Algorithms.DataAlgorithm
 
         public override void Sort(IList<T> collection)
         {
+            SwapTimes = 0;
             if (collection == null || collection.Count <= 1)
                 return;
             Shake(collection);
@@ -30,6 +31,8 @@ namespace Algorithms.DataAlgorithm
                     i++;
                 }
                 rightIndex--;
+                if (SwapTimes == 0)
+                    break;
 
                 j = rightIndex;
                 while (j > leftIndex)
