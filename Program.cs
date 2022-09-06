@@ -16,20 +16,20 @@ namespace Algorithms
 
             // Files with reversed item at files:
             // reversed5000.txt, reversed10000.txt, reversed50000.txt (5k, 10k, 50k items)
-            GetDataFromFile("reversed10000.txt", reversedCollection);
+            GetDataFromFile("reversed5000.txt", reversedCollection);
 
             // Files with sorted item at files:
             // sorted5000.txt, sorted10000.txt, sorted50000.txt (5k, 10k, 50k items)
-            GetDataFromFile("sorted10000.txt", sortedCollection);
+            GetDataFromFile("sorted5000.txt", sortedCollection);
 
             // Files with random unsorted item at files:
             // random5000.txt, random10000.txt, random50000.txt (5k, 10k, 50k items)
-            GetDataFromFile("random10000.txt", randomUnsortedCollection);
+            GetDataFromFile("random5000.txt", randomUnsortedCollection);
 
             Algorithm<int>[] algorithms = new Algorithm<int>[5];
             algorithms[0] = new BubbleSort<int>();
+            algorithms[1] = new ShakeSort<int>();
 
-            
             SortAllCollectionWithResults_Console(algorithms,
                                                  reversedCollection,
                                                  sortedCollection,
@@ -45,7 +45,7 @@ namespace Algorithms
 
                 var newList = new int[reversedCollection.Count];
                 Stopwatch timer = new Stopwatch();
-                Console.WriteLine($"{item.GetType().Name} algorithm results:");
+                Console.WriteLine($"{item.GetType().Name[0..^2]} algorithm results:");
 
                 reversedCollection.CopyTo(newList);
                 timer.Start();

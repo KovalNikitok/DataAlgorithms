@@ -8,18 +8,15 @@ namespace Algorithms.DataAlgorithm
 
         public override void Sort(IList<T> collection)
         {
-            if (collection == null)
+            if (collection == null || collection.Count <= 1)
                 return;
             for (int i = 0; i < collection.Count - 1; i++)
             {
                 for (int j = 0; j < collection.Count - i - 1; j++)
                 {
-                    var currentItem = collection[j];
-                    var nextItem = collection[j + 1];
-
-                    if (currentItem.CompareTo(nextItem) <= 0)
+                    if (collection[j].CompareTo(collection[j + 1]) <= 0)
                         continue;
-                    Swap(ref currentItem, ref nextItem);
+                    ValueSwap(collection, j, j + 1);
                 }
             }
         }

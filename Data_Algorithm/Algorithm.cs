@@ -11,6 +11,12 @@ namespace Algorithms.DataAlgorithm
             first = second;
             second = temp;
         }
+        protected virtual void ValueSwap(IList<T> collection, int indexOfFirst, int indexOfSecond)
+        {
+            T temp = collection[indexOfFirst];
+            collection[indexOfFirst] = collection[indexOfSecond];
+            collection[indexOfSecond] = temp;
+        }
         public abstract void Sort(IList<T> collection);
         public abstract int CompareTo(T other);
     }
