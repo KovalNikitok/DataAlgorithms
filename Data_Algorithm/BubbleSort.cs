@@ -16,7 +16,7 @@ namespace Algorithms.DataAlgorithm
                 {
                     if (collection[j].CompareTo(collection[j + 1]) <= 0)
                         continue;
-                    ValueSwap(collection, j, j + 1);
+                    Swap(collection, j, j + 1);
                 }
             }
         }

@@ -26,7 +26,7 @@ namespace Algorithms.DataAlgorithm
                 while (i < rightIndex)
                 {   
                     if (collection[i].CompareTo(collection[i + 1]) > 0)
-                        ValueSwap(collection, i, i + 1);
+                        Swap(collection, i, i + 1);
                     i++;
                 }
                 rightIndex--;
@@ -35,7 +35,7 @@ namespace Algorithms.DataAlgorithm
                 while (j > leftIndex)
                 {
                     if (collection[j].CompareTo(collection[j - 1]) < 0)
-                        ValueSwap(collection, j, j - 1);
+                        Swap(collection, j, j - 1);
                     j--;
                 }
                 leftIndex++;
