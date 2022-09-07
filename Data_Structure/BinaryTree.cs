@@ -1,4 +1,4 @@
-﻿using DataStructures.Models.Items;
+﻿using Algorithms.DataStructures.Items;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +23,12 @@ namespace Algorithms.DataStructures
             Count = 1;
         }
 
+        public BinaryTree(IList<T> items) : this()
+        {
+            if (items.Count > 0)
+                AddRange(items);
+        }
+
         public void Add(T data)
         {
             if (Count == 0)
@@ -33,6 +39,21 @@ namespace Algorithms.DataStructures
             }
             if (Root.Add(data))
                 Count++;
+        }
+
+        public void AddRange(IList<T> data)
+        {
+            if (Count == 0)
+            {
+                Root.Data = data[0];
+                Count = 1;
+            }
+            if (Count >= 1)
+                for( int i = 1; i < data.Count; i++)
+                {
+                    if (Root.Add(data[i]))
+                        Count++;
+                }
         }
 
         // For copying
@@ -60,7 +81,7 @@ namespace Algorithms.DataStructures
         public List<T> Postorder()
         {
             var itemsList = new List<T>(Count);
-            if(itemsList != null)
+            if (itemsList != null)
                 PostorderRecursion(Root, itemsList);
             return itemsList;
         }
@@ -89,7 +110,7 @@ namespace Algorithms.DataStructures
             return itemsList;
         }
 
-        
+
         private void InorderRecursion(TreeRecursionItem<T> item, List<T> itemsArray)
         {
             if (item == null)

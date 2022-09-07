@@ -1,7 +1,6 @@
 ﻿using Algorithms.DataAlgorithm;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 
 namespace Algorithms
@@ -26,37 +25,18 @@ namespace Algorithms
             // random5000.txt, random10000.txt, random50000.txt (5k, 10k, 50k items)
             GetDataFromFile("random5000.txt", randomUnsortedCollection);
 
-            Algorithm<int>[] algorithms = new Algorithm<int>[5];
+            Algorithm<int>[] algorithms = new Algorithm<int>[10];
             algorithms[0] = new BubbleSort<int>();
             algorithms[1] = new ShakeSort<int>();
             algorithms[2] = new InsertionSort<int>();
             algorithms[3] = new ShellSort<int>();
             algorithms[4] = new HeapSort<int>();
+            algorithms[5] = new TreeSort<int>();
 
-            /*  SortAllCollectionWithResults_Console(algorithms,
-                                                   reversedCollection,
-                                                   sortedCollection,
-                                                   randomUnsortedCollection);
-  */
-            List<int> ls = new List<int>(new int[] { 3, 4, 1, 2, 7, 6, 8, 5 });
-            var bh = new DataStructures.BinaryHeap<int>();
-            foreach (var item in ls)
-            {
-                bh.Push(item);
-                Console.WriteLine(item);
-            }
-            Console.WriteLine(bh);
-            for(int i = 0; i < bh.Count; i++)
-            {
-                bh.Sort(bh.Count - i - 1);
-            }
-
-            algorithms[4].Sort(ls);
-            foreach (var item in ls)
-            {
-                Console.WriteLine(item);
-            }
-
+            SortAllCollectionWithResults_Console(algorithms,
+                                                 reversedCollection,
+                                                 sortedCollection,
+                                                 randomUnsortedCollection);
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)

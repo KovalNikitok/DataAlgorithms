@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Algorithms.DataStructures;
 
 namespace Algorithms.DataAlgorithm
 {
@@ -7,7 +8,13 @@ namespace Algorithms.DataAlgorithm
     {
         public override void Sort(IList<T> collection)
         {
-            throw new NotImplementedException();
+            var binaryTree = new BinaryTree<T>(collection);
+            var sorted = binaryTree.Inorder();
+
+            for(int i = 0; i < collection.Count; i++)
+            {
+                collection[i] = sorted[i];
+            }
         }
     }
 }

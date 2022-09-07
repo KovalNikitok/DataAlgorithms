@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace DataStructures.Models.Items
+namespace Algorithms.DataStructures.Items
 {
     class TreeRecursionItem<T> where T : IComparable<T>
     {
