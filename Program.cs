@@ -32,11 +32,12 @@ namespace Algorithms
             algorithms[3] = new ShellSort<int>();
             algorithms[4] = new HeapSort<int>();
             algorithms[5] = new TreeSort<int>();
+            algorithms[6] = new SelectionSort<int>();
 
             SortAllCollectionWithResults_Console(algorithms,
-                                                 reversedCollection,
-                                                 sortedCollection,
-                                                 randomUnsortedCollection);
+                                                   reversedCollection,
+                                                   sortedCollection,
+                                                   randomUnsortedCollection);
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
