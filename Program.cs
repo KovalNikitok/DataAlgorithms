@@ -31,6 +31,7 @@ namespace Algorithms
             algorithms[1] = new ShakeSort<int>();
             algorithms[2] = new InsertionSort<int>();
             algorithms[3] = new ShellSort<int>();
+            algorithms[4] = new HeapSort<int>();
 
             /*  SortAllCollectionWithResults_Console(algorithms,
                                                    reversedCollection,
@@ -38,12 +39,19 @@ namespace Algorithms
                                                    randomUnsortedCollection);
   */
             List<int> ls = new List<int>(new int[] { 3, 4, 1, 2, 7, 6, 8, 5 });
+            var bh = new DataStructures.BinaryHeap<int>();
             foreach (var item in ls)
             {
+                bh.Push(item);
                 Console.WriteLine(item);
             }
-            Console.WriteLine();
-            algorithms[3].Sort(ls);
+            Console.WriteLine(bh);
+            for(int i = 0; i < bh.Count; i++)
+            {
+                bh.Sort(bh.Count - i - 1);
+            }
+
+            algorithms[4].Sort(ls);
             foreach (var item in ls)
             {
                 Console.WriteLine(item);
