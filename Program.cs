@@ -33,11 +33,13 @@ namespace Algorithms
             algorithms[4] = new HeapSort<int>();
             algorithms[5] = new TreeSort<int>();
             algorithms[6] = new SelectionSort<int>();
+            algorithms[7] = new GnomeSort<int>();
+            algorithms[8] = new LsdRadixSort();
 
             SortAllCollectionWithResults_Console(algorithms,
-                                                   reversedCollection,
-                                                   sortedCollection,
-                                                   randomUnsortedCollection);
+                                                 reversedCollection,
+                                                 sortedCollection,
+                                                 randomUnsortedCollection);
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
