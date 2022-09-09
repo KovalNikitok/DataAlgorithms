@@ -44,7 +44,6 @@ namespace Algorithms.DataAlgorithm
                     buckets[i].Clear();
                 }
             }
-            Console.WriteLine();
         }
 
         private static int GetBucketIndex(int item, int length)
