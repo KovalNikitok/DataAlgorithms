@@ -37,19 +37,10 @@ namespace Algorithms
             algorithms[8] = new LsdRadixSort();
             algorithms[9] = new MergeSort<int>();
 
-            /*SortAllCollectionWithResults_Console(algorithms,
+            SortAllCollectionWithResults_Console(algorithms,
                                                  reversedCollection,
                                                  sortedCollection,
-                                                 randomUnsortedCollection);*/
-
-            var ls = new List<int>(new int[] { 17, 431, 132, 22, 71, 6, 8, 37 });
-
-            algorithms[9].Sort(ls);
-            foreach (var item in ls)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine();
+                                                 randomUnsortedCollection);
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
