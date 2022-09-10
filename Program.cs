@@ -36,11 +36,20 @@ namespace Algorithms
             algorithms[7] = new GnomeSort<int>();
             algorithms[8] = new LsdRadixSort();
             algorithms[9] = new MergeSort<int>();
+            algorithms[10] = new QuickSort<int>();
 
-            SortAllCollectionWithResults_Console(algorithms,
+            /*SortAllCollectionWithResults_Console(algorithms,
                                                  reversedCollection,
                                                  sortedCollection,
-                                                 randomUnsortedCollection);
+                                                 randomUnsortedCollection);*/
+
+            var items = new List<int>(new int[] { 0, 9, 7, 2, 4, 6, 1, 3, 5, 8 });
+            algorithms[10].Sort(items);
+
+            foreach (var item in items)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
