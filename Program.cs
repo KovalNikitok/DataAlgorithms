@@ -25,7 +25,7 @@ namespace Algorithms
             // random5000.txt, random10000.txt, random50000.txt (5k, 10k, 50k items)
             GetDataFromFile("random5000.txt", randomUnsortedCollection);
 
-            Algorithm<int>[] algorithms = new Algorithm<int>[12];
+            Algorithm<int>[] algorithms = new Algorithm<int>[10];
             algorithms[0] = new BubbleSort<int>();
             algorithms[1] = new ShakeSort<int>();
             algorithms[2] = new InsertionSort<int>();
@@ -34,22 +34,13 @@ namespace Algorithms
             algorithms[5] = new TreeSort<int>();
             algorithms[6] = new SelectionSort<int>();
             algorithms[7] = new GnomeSort<int>();
-            algorithms[8] = new LsdRadixSort();
-            algorithms[9] = new MergeSort<int>();
-            algorithms[10] = new QuickSort<int>();
+            algorithms[8] = new MergeSort<int>();
+            algorithms[9] = new QuickSort<int>();
 
-            /*SortAllCollectionWithResults_Console(algorithms,
+            SortAllCollectionWithResults_Console(algorithms,
                                                  reversedCollection,
                                                  sortedCollection,
-                                                 randomUnsortedCollection);*/
-
-            var items = new List<int>(new int[] { 0, 9, 7, 2, 4, 6, 1, 3, 5, 8 });
-            algorithms[10].Sort(items);
-
-            foreach (var item in items)
-            {
-                Console.WriteLine(item);
-            }
+                                                 randomUnsortedCollection);
         }
 
         private static void SortAllCollectionWithResults_Console(Algorithm<int>[] algorithms, List<int> reversedCollection, List<int> sortedCollection, List<int> randomUnsortedCollection)
