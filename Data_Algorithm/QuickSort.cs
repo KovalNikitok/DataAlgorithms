@@ -10,7 +10,8 @@ namespace Algorithms.DataAlgorithm
             if (collection == null || collection.Count <= 1)
                 return;
 
-            RecursiveSort(collection, 0, collection.Count - 1);
+            //RecursiveSort(collection, 0, collection.Count - 1);
+            HoaraSorting(collection, 0, collection.Count - 1);
         }
 
         public void RecursiveSort(IList<T> collection, int leftSideIndex, int rightSideIndex)
@@ -28,31 +29,40 @@ namespace Algorithms.DataAlgorithm
             RecursiveSort(collection, pivotIndex + 1, rightSideIndex);
         }
 
-        // Unstable hoara algorithm
-        private void HoaraSorting(IList<T> collection, int leftSideIndex, int rightSideIndex, int pivotIndex)
+        // Unstable hoara quick algorithm
+        private void HoaraSorting(IList<T> collection, int firstIndex, int lastIndex)
         {
-            for (int leftIndex = leftSideIndex, rightIndex = rightSideIndex; ;)
+            int leftIndex = firstIndex;
+            int rightIndex = lastIndex;
+            T pivot = collection[CalculatePivotIndex(firstIndex, lastIndex)];
+
+            do
             {
-                while (leftIndex < pivotIndex && 
-                        collection[leftIndex].CompareTo(collection[pivotIndex]) < 0)
+                while (collection[leftIndex].CompareTo(pivot) < 0)
                 {
                     leftIndex++;
                 }
-                while (rightIndex > pivotIndex && 
-                        collection[rightIndex].CompareTo(collection[pivotIndex]) >= 0)
+                while (collection[rightIndex].CompareTo(pivot) > 0)
                 {
                     rightIndex--;
                 }
 
-                if (leftIndex >= pivotIndex && rightIndex <= pivotIndex)
-                    break;
-                Swap(collection, leftIndex, rightIndex);
+                if (leftIndex <= rightIndex)
+                {
+                    if (collection[leftIndex].CompareTo(collection[rightIndex]) > 0)
+                        Swap(collection, leftIndex, rightIndex);
 
-                if (leftIndex < pivotIndex)
                     leftIndex++;
-                if (rightIndex > pivotIndex)
                     rightIndex--;
+                }
             }
+            while (leftIndex <= rightIndex);
+
+            if (firstIndex < rightIndex)
+                HoaraSorting(collection, firstIndex, rightIndex);
+
+            if (leftIndex < lastIndex)
+                HoaraSorting(collection, leftIndex, lastIndex);
         }
 
         private int SortingWithPivot(IList<T> collection, int leftSideIndex, int rightSideIndex)
@@ -71,7 +81,7 @@ namespace Algorithms.DataAlgorithm
             return pointer;
         }
 
-            private int CalculatePivotIndex(int leftSideIndex, int rightSideIndex)
-            => (leftSideIndex + rightSideIndex) / 2;
+        private int CalculatePivotIndex(int leftSideIndex, int rightSideIndex)
+                => (leftSideIndex + rightSideIndex) / 2;
     }
 }
