@@ -10,26 +10,10 @@ namespace Algorithms.DataAlgorithm
             if (collection == null || collection.Count <= 1)
                 return;
 
-            //RecursiveSort(collection, 0, collection.Count - 1);
+            //QuickSorting(collection, 0, collection.Count - 1);
             HoaraSorting(collection, 0, collection.Count - 1);
         }
 
-        public void RecursiveSort(IList<T> collection, int leftSideIndex, int rightSideIndex)
-        {
-            if (leftSideIndex >= rightSideIndex)
-                return;
-
-            // int pivotIndex = CalculatePivotIndex(leftSideIndex, rightSideIndex);
-            // HoaraSorting(collection, leftSideIndex, rightSideIndex, pivotIndex);
-            int pivotIndex = SortingWithPivot(collection, leftSideIndex, rightSideIndex);
-
-            // Left side sort
-            RecursiveSort(collection, leftSideIndex, pivotIndex - 1);
-            // Right side sort
-            RecursiveSort(collection, pivotIndex + 1, rightSideIndex);
-        }
-
-        // Unstable hoara quick algorithm
         private void HoaraSorting(IList<T> collection, int firstIndex, int lastIndex)
         {
             int leftIndex = firstIndex;
@@ -58,11 +42,22 @@ namespace Algorithms.DataAlgorithm
             }
             while (leftIndex <= rightIndex);
 
-            if (firstIndex < rightIndex)
+            if (rightIndex > firstIndex)
                 HoaraSorting(collection, firstIndex, rightIndex);
 
             if (leftIndex < lastIndex)
                 HoaraSorting(collection, leftIndex, lastIndex);
+        }
+
+        public void QuickSorting(IList<T> collection, int leftSideIndex, int rightSideIndex)
+        {
+            if (leftSideIndex >= rightSideIndex)
+                return;
+            int pivotIndex = SortingWithPivot(collection, leftSideIndex, rightSideIndex);
+            // Left side sort
+            QuickSorting(collection, leftSideIndex, pivotIndex - 1);
+            // Right side sort
+            QuickSorting(collection, pivotIndex + 1, rightSideIndex);
         }
 
         private int SortingWithPivot(IList<T> collection, int leftSideIndex, int rightSideIndex)
